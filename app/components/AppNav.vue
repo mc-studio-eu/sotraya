@@ -19,9 +19,8 @@ const isHome = computed(() => route.path === '/')
 const anchor = (hash: string) => (isHome.value ? hash : `/${hash}`)
 
 /**
- * Over the hero the bar is transparent and reads light on the photo — and the
- * lockup stays hidden, the hero carries the brand on its own. Past the fold —
- * and on every page without a hero — it lifts onto cream and the logo appears.
+ * Over the hero the bar is transparent and reads light on the photo. Past the
+ * fold — and on every page without a hero — it lifts onto cream.
  */
 const scrolled = ref(false)
 const lifted = computed(() => !isHome.value || scrolled.value)
@@ -40,8 +39,7 @@ onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
       <a
         :href="isHome ? '#top' : '/'"
         class="brand text-[1.25rem]"
-        :aria-hidden="!lifted"
-        :tabindex="lifted ? undefined : -1"
+        aria-label="Sotraya — retour en haut"
       >
         <SotrayaLogo />
       </a>
@@ -97,16 +95,8 @@ onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
   color: var(--color-ink);
 }
 
-/* hidden while the bar sits over the hero */
 .brand {
   justify-self: start;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.4s var(--ease-out-expo);
-}
-.nav.is-lifted .brand {
-  opacity: 1;
-  pointer-events: auto;
 }
 
 .nav-link {

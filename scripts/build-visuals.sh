@@ -29,8 +29,10 @@ for src in "${sources[@]}"; do
   src_w=$(sips -g pixelWidth "$src" | awk '/pixelWidth/ {print $2}')
   echo "→ $name (${src_w}px)"
 
+  # every width is always emitted — BrandVisual's srcset and its 1920 fallback
+  # assume all three files exist. A source narrower than a width is not upscaled,
+  # so the file is written at the source's own pixel size under the wider name.
   for w in "${WIDTHS[@]}"; do
-    # never upscale: the widest derivative caps at the source width
     target=$w
     [ "$w" -gt "$src_w" ] && target=$src_w
 
@@ -42,7 +44,6 @@ for src in "${sources[@]}"; do
     rm -f "$tmp"
 
     printf '   %5dw  %s\n' "$w" "$(du -h "$OUT_DIR/$name-$w.avif" | cut -f1 | tr -d ' ') avif"
-    [ "$target" -lt "$w" ] && break   # source exhausted, no point going wider
   done
 done
 

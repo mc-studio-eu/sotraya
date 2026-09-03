@@ -15,45 +15,84 @@ const stats = [
   {
     n: '03',
     value: '24/7',
-    lead: "Certains processus n'ont aucune raison d'attendre lundi matin.",
-    note: null
+    lead: 'sans interruption.',
+    note: "Certains processus n'ont aucune raison d'attendre lundi matin."
   }
 ]
 </script>
 
 <template>
-  <section id="resultats" class="results">
-    <article v-for="s in stats" :key="s.n" class="stat">
-      <div class="shell">
-        <p v-reveal class="t-mono text-mute">{{ s.n }} / Résultat</p>
-        <p v-reveal="80" class="t-mega mt-8">{{ s.value }}</p>
-        <p v-reveal="160" class="t-section lead mt-8 max-w-[18ch]">{{ s.lead }}</p>
-        <p v-reveal="240" class="t-lead note mt-6 max-w-[38ch] text-mute">{{ s.note }}</p>
+  <section id="resultats" class="band">
+    <div class="shell">
+      <p v-reveal class="t-mono text-mute">Résultats</p>
+
+      <div class="stats mt-12 md:mt-20">
+        <article v-for="(s, i) in stats" :key="s.n" class="stat">
+          <p v-reveal="i * 80" class="t-mono text-mute">{{ s.n }}</p>
+          <p v-reveal="i * 80 + 80" class="figure">{{ s.value }}</p>
+          <p v-reveal="i * 80 + 160" class="lead">{{ s.lead }}</p>
+          <p v-reveal="i * 80 + 240" class="t-lead text-mute">{{ s.note }}</p>
+        </article>
       </div>
-    </article>
+    </div>
   </section>
 </template>
 
 <style scoped>
+.stats {
+  display: grid;
+  gap: clamp(2.5rem, 4vw, 4rem);
+}
+
 .stat {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-height: clamp(30rem, 82vh, 52rem);
-  padding-block: 6rem;
+  display: grid;
+  align-content: start;
+  row-gap: clamp(0.75rem, 1vw, 1.25rem);
 }
 
-.stat + .stat {
-  border-top: 1px solid color-mix(in srgb, var(--color-ink) 10%, transparent);
+.figure {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(3.5rem, 7.5vw, 6.5rem);
+  line-height: 0.85;
+  letter-spacing: -0.045em;
 }
 
-/* Hauteurs réservées : chaque panneau a la même pile de contenu,
-   donc les trois chiffres tombent exactement à la même hauteur. */
 .lead {
-  min-height: calc(4 * 1.04em);
+  font-size: clamp(1.25rem, 1.9vw, 1.75rem);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  font-weight: 500;
+  max-width: 16ch;
 }
 
-.note {
-  min-height: 1.55em;
+.stat > .t-lead {
+  max-width: 30ch;
+}
+
+/* Une seule ligne : les quatre rangées sont partagées par les trois colonnes
+   (subgrid), donc chiffres, phrases et notes s'alignent exactement. */
+@media (min-width: 768px) {
+  .stats {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto auto auto;
+  }
+
+  .stat {
+    grid-row: span 4;
+    grid-template-rows: subgrid;
+  }
+
+  .stat + .stat {
+    border-inline-start: 1px solid color-mix(in srgb, var(--color-ink) 10%, transparent);
+    padding-inline-start: clamp(2.5rem, 4vw, 4rem);
+  }
+}
+
+@media (max-width: 767.98px) {
+  .stat + .stat {
+    border-top: 1px solid color-mix(in srgb, var(--color-ink) 10%, transparent);
+    padding-block-start: clamp(2.5rem, 4vw, 4rem);
+  }
 }
 </style>

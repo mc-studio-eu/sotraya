@@ -91,10 +91,12 @@ const jpg = computed(() => srcset('jpg'))
   background:
     linear-gradient(
       180deg,
-      color-mix(in srgb, var(--color-ink) 62%, transparent) 0%,
-      color-mix(in srgb, var(--color-ink) 34%, transparent) 38%,
-      color-mix(in srgb, var(--color-ink) 8%, transparent) 62%,
-      transparent 82%
+      color-mix(in srgb, var(--color-ink) 66%, transparent) 0%,
+      color-mix(in srgb, var(--color-ink) 46%, transparent) 30%,
+      /* held through the band where the sun glow would swallow the lead and the CTA */
+      color-mix(in srgb, var(--color-ink) 34%, transparent) 52%,
+      color-mix(in srgb, var(--color-ink) 12%, transparent) 72%,
+      transparent 88%
     );
 }
 
@@ -120,7 +122,7 @@ const jpg = computed(() => srcset('jpg'))
 .hero-lead {
   margin-top: 1.75rem;
   max-width: 52ch;
-  color: color-mix(in srgb, var(--color-paper) 82%, transparent);
+  color: color-mix(in srgb, var(--color-paper) 92%, transparent);
   text-wrap: pretty;
 }
 
@@ -148,6 +150,6 @@ const jpg = computed(() => srcset('jpg'))
 }
 
 .hero-note {
-  color: color-mix(in srgb, var(--color-paper) 70%, transparent);
+  color: color-mix(in srgb, var(--color-paper) 78%, transparent);
 }
 </style>

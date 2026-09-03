@@ -41,10 +41,10 @@ const CONNECTORS = [
 ]
 
 const STEPS = [
-  { x: 66.9, n: '01', label: 'Input' },
-  { x: 211.2, n: '02', label: 'Process' },
+  { x: 66.9, n: '01', label: 'Entrée' },
+  { x: 211.2, n: '02', label: 'Traitement' },
   { x: 360.7, n: '03', label: 'Action' },
-  { x: 471.9, n: '04', label: 'Result' }
+  { x: 471.9, n: '04', label: 'Résultat' }
 ]
 
 /** 0 = assembled symbol, 1 = resolved workflow. Owned by the hero, which measures the scroll. */

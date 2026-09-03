@@ -9,29 +9,11 @@
 
       <p v-reveal="240" class="t-lead mt-10 text-ink/65">C'est ce que nous construisons.</p>
     </div>
-
-    <BrandVisual
-      v-reveal
-      name="structure"
-      class="structure"
-      sizes="100vw"
-      alt="Ensemble architectural en béton — volumes suspendus, portiques et escalier — assemblés en une seule structure."
-    />
   </section>
 </template>
 
 <style scoped>
 .manifesto {
   background-color: var(--color-sage);
-}
-
-.structure {
-  --visual-ratio: 4 / 3;
-}
-
-@media (min-width: 768px) {
-  .structure {
-    --visual-ratio: 21 / 9;
-  }
 }
 </style>

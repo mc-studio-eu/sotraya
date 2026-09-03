@@ -2,7 +2,7 @@
   <section id="realisations" class="band">
     <div class="shell">
       <div v-reveal class="flex flex-wrap items-baseline justify-between gap-6">
-        <h2 class="t-section">Systems we've built.</h2>
+        <h2 class="t-section">Ce que nous avons construit.</h2>
         <p class="t-mono text-mute">Des systèmes en production</p>
       </div>
 
@@ -10,7 +10,7 @@
         <div v-reveal class="cover">
           <SotrayaMark class="watermark" label="" aria-hidden="true" />
           <div class="cover-inner">
-            <p class="t-mono cover-kicker">Home organizing · Creator business</p>
+            <p class="t-mono cover-kicker">Organisation d'intérieur · Activité de créatrice</p>
             <p class="cover-name">Maison AWL</p>
             <ol class="cover-chain" aria-hidden="true">
               <li v-for="s in ['Demande', 'Dossier', 'Planning', 'Livraison']" :key="s">{{ s }}</li>
