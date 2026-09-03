@@ -1,0 +1,156 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------
+   Sotraya — design tokens (charte graphique)
+   ------------------------------------------------------------------ */
+@theme {
+  --color-ink: #11110f;
+  --color-ink-soft: #1c1c19;
+  --color-cream: #f5f2ec;
+  --color-paper: #fbfaf7;
+  --color-stone: #d9d6ce;
+  --color-sage: #bfd6c2;
+  --color-sage-deep: #4f7a5c;
+  --color-mute: #6e6d66;
+  --color-mute-dark: #8d8c85;
+
+  --font-sans: "General Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: "Clash Display", "General Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", monospace;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-weight: 400;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: var(--color-sage);
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* ------------------------------------------------------------------
+   Typographic scale
+   ------------------------------------------------------------------ */
+@layer components {
+  .shell {
+    width: 100%;
+    max-width: 90rem;
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 4.5vw, 4.5rem);
+  }
+
+  .t-hero {
+    font-size: clamp(2.5rem, 5.2vw, 5.25rem);
+    line-height: 0.96;
+    letter-spacing: -0.035em;
+    font-weight: 500;
+  }
+
+  .t-statement {
+    font-size: clamp(1.875rem, 4.4vw, 4.25rem);
+    line-height: 1;
+    letter-spacing: -0.032em;
+    font-weight: 500;
+  }
+
+  .t-section {
+    font-size: clamp(1.75rem, 3.6vw, 3.25rem);
+    line-height: 1.04;
+    letter-spacing: -0.028em;
+    font-weight: 500;
+  }
+
+  .t-mega {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(4.5rem, 15vw, 14rem);
+    line-height: 0.8;
+    letter-spacing: -0.045em;
+  }
+
+  .t-lead {
+    font-size: clamp(1.0625rem, 1.35vw, 1.3125rem);
+    line-height: 1.55;
+    font-weight: 400;
+  }
+
+  .t-mono {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  /* Section rhythm ------------------------------------------------ */
+  .band {
+    padding-block: clamp(5.5rem, 12vw, 11rem);
+  }
+
+  .rule {
+    height: 1px;
+    background-color: color-mix(in srgb, var(--color-ink) 12%, transparent);
+  }
+
+  /* Link with the brand's outbound arrow --------------------------- */
+  .arrow-link {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.45em;
+  }
+  .arrow-link .arrow {
+    display: inline-block;
+    transition: transform 0.4s var(--ease-out-expo);
+  }
+  .arrow-link:hover .arrow {
+    transform: translate(0.18em, -0.18em);
+  }
+}
+
+/* ------------------------------------------------------------------
+   Scroll reveal
+   ------------------------------------------------------------------ */
+.reveal {
+  opacity: 0;
+  transform: translateY(1.5rem);
+  transition:
+    opacity 0.9s var(--ease-out-expo),
+    transform 0.9s var(--ease-out-expo);
+}
+.reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; }
+}
