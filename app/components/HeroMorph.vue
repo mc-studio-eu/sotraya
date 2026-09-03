@@ -4,7 +4,7 @@ import { MARK_MODULES } from '~/utils/mark'
 
 /**
  * The page's signature: the six modules of the Sotraya symbol arrive scattered,
- * connect into the S, then — as the hero scrolls away — resolve into the
+ * connect into the S, then, as the hero scrolls away, resolve into the
  * 01 INPUT → 02 PROCESS → 03 ACTION → 04 RESULT chain the brand runs on.
  */
 

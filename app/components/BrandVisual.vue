@@ -13,7 +13,7 @@ const props = withDefaults(
     name: string
     alt: string
     /**
-     * aspect-ratio of the frame — the render is cropped to fill it.
+     * aspect-ratio of the frame; the render is cropped to fill it.
      * Omit it and set `--visual-ratio` from the section instead when the
      * crop has to change across breakpoints.
      */

@@ -2,13 +2,13 @@
   <section id="a-propos" class="band">
     <div class="shell grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
       <BrandVisual
-        v-reveal
+        v-reveal="{ variant: 'scale', duration: 1200 }"
         name="portrait"
         ratio="1 / 1"
         sizes="(min-width: 1024px) 38vw, 100vw"
         alt="Daris Rabouhi, fondateur de Sotraya"
       >
-        Daris Rabouhi — fondateur
+        Daris Rabouhi, fondateur
       </BrandVisual>
 
       <div class="lg:pt-6">

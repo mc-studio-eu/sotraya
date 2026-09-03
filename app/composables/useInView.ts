@@ -1,6 +1,6 @@
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 
-/** Fires once when the element reaches the viewport — used to start section animations. */
+/** Fires once when the element reaches the viewport; used to start section animations. */
 export function useInView(options: { threshold?: number; rootMargin?: string; once?: boolean } = {}) {
   const { threshold = 0.3, rootMargin = '0px 0px -12% 0px', once = true } = options
   const target = ref<HTMLElement | null>(null)

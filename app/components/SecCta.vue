@@ -5,7 +5,7 @@ import { CONTACT } from '~/utils/contact'
 <template>
   <section id="parler" class="cta-band">
     <div class="shell py-28 md:py-40">
-      <h2 v-reveal class="t-statement max-w-[15ch]">
+      <h2 v-reveal="{ variant: 'clip', duration: 1100 }" class="t-statement max-w-[15ch]">
         Quel travail ne devrait plus être manuel chez vous ?
       </h2>
 

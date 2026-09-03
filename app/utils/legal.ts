@@ -1,5 +1,5 @@
 /**
- * Informations légales de l'éditeur du site — source unique pour les pages
+ * Informations légales de l'éditeur du site, source unique pour les pages
  * « Mentions légales » et « Conditions générales de vente ».
  *
  * ⚠️  À COMPLÉTER avant mise en ligne : tous les champs à `null` sont affichés
@@ -54,7 +54,7 @@ export const LEGAL = {
     warrantyDays: 30
   },
 
-  /** Médiateur de la consommation — requis uniquement si clientèle B2C. */
+  /** Médiateur de la consommation, requis uniquement si clientèle B2C. */
   mediator: {
     name: null as string | null,
     url: null as string | null

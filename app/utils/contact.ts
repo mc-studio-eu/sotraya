@@ -1,6 +1,6 @@
 /**
  * Single source of truth for every outbound link (social, contact, booking).
- * Values mirror what sotraya.com publishes today — change them here, not in
+ * Values mirror what sotraya.com publishes today; change them here, not in
  * the components.
  */
 export const CONTACT = {

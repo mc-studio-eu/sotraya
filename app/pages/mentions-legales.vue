@@ -25,7 +25,7 @@ const hebergeur: Row[] = [
   { term: 'Site', value: host.url, href: host.url ?? undefined }
 ]
 
-const title = 'Mentions légales — Sotraya'
+const title = 'Mentions légales | Sotraya'
 const description =
   "Mentions légales du site sotraya.com : éditeur, hébergeur, propriété intellectuelle, données personnelles et cookies."
 
@@ -88,9 +88,9 @@ useHead({
     <section>
       <h2><span class="num">03</span>Propriété intellectuelle</h2>
       <p>
-        L'ensemble des éléments composant ce site — structure, textes, identité visuelle, logo,
-        marque « Sotraya », illustrations, photographies, typographies mises en page et code source
-        — est protégé par le droit de la propriété intellectuelle et demeure la propriété exclusive
+        L'ensemble des éléments composant ce site (structure, textes, identité visuelle, logo,
+        marque « Sotraya », illustrations, photographies, typographies mises en page et code source)
+        est protégé par le droit de la propriété intellectuelle et demeure la propriété exclusive
         de l'éditeur ou de ses ayants droit.
       </p>
       <p>
@@ -111,7 +111,7 @@ useHead({
       <p>
         Le site est un site vitrine : il ne comporte ni compte utilisateur, ni espace client, ni
         formulaire de collecte. Les données personnelles ne sont traitées que lorsque vous prenez
-        contact de votre propre initiative — par courriel, téléphone, WhatsApp ou en réservant un
+        contact de votre propre initiative, par courriel, téléphone, WhatsApp ou en réservant un
         créneau d'appel.
       </p>
       <ul>
@@ -205,7 +205,7 @@ useHead({
       <h2><span class="num">09</span>Contact</h2>
       <p>
         Pour toute question relative au site ou aux présentes mentions :
-        <a :href="mailHref">{{ CONTACT.email }}</a> — <a :href="telHref">{{ CONTACT.phoneDisplay }}</a
+        <a :href="mailHref">{{ CONTACT.email }}</a> · <a :href="telHref">{{ CONTACT.phoneDisplay }}</a
         >.
       </p>
     </section>

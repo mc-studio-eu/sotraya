@@ -34,22 +34,27 @@ const services = [
         <header v-reveal class="services-intro">
           <h2 class="t-section max-w-[15ch]">Un système pour tout faire circuler.</h2>
           <p class="services-summary">
-            Automatisation, intégrations, IA et outils sur mesure — conçus comme un ensemble, autour
+            Automatisation, intégrations, IA et outils sur mesure, conçus comme un ensemble autour
             de vos opérations.
           </p>
         </header>
 
         <div class="services-layout">
           <BrandVisual
-            v-reveal
+            v-reveal="{ variant: 'scale', duration: 1200 }"
             class="services-visual"
-            name="assemblage"
-            alt="Éléments distincts reliés au sein d'un même système"
+            name="services-book"
+            alt="Livre lumineux en suspension au-dessus d'une main"
             sizes="(min-width: 900px) 50vw, 100vw"
           />
 
           <ul class="services-grid">
-            <li v-for="(service, i) in services" :key="service.name" v-reveal="i * 70" class="service-card">
+            <li
+              v-for="(service, i) in services"
+              :key="service.name"
+              v-reveal="{ variant: 'up', delay: i * 90, distance: '1.25rem' }"
+              class="service-card"
+            >
               <svg v-if="service.icon === 'automation'" class="service-icon" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M5 7h8m-8 10h14M16 4v6m-4 4v6" />
                 <circle cx="16" cy="7" r="2.5" />
@@ -121,7 +126,7 @@ const services = [
 
 .services-visual :deep(.frame) {
   height: 100%;
-  min-height: clamp(24rem, 92vw, 40rem);
+  min-height: 0;
 }
 
 .services-visual :deep(img) {

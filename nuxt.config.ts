@@ -10,7 +10,7 @@ export default defineNuxtConfig({
   app: {
     head: {
       htmlAttrs: { lang: 'fr' },
-      title: 'Sotraya — Systems for better business.',
+      title: 'Sotraya | Systems for better business.',
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -24,7 +24,7 @@ export default defineNuxtConfig({
         { property: 'og:type', content: 'website' },
         { property: 'og:site_name', content: 'Sotraya' },
         { property: 'og:locale', content: 'fr_FR' },
-        { property: 'og:title', content: 'Sotraya — Systems for better business.' },
+        { property: 'og:title', content: 'Sotraya | Systems for better business.' },
         {
           property: 'og:description',
           content:

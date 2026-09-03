@@ -24,10 +24,14 @@ const year = new Date().getFullYear()
   <footer class="footer">
     <div class="shell">
       <div class="grid gap-12 border-t border-cream/12 pt-14 md:grid-cols-[1.4fr_1fr] md:gap-20">
-        <p class="tagline">Systems for better business.</p>
+        <p v-reveal="{ variant: 'clip' }" class="tagline">Systems for better business.</p>
 
         <div class="grid gap-10 sm:grid-cols-2">
-          <div v-for="c in columns" :key="c.title">
+          <div
+            v-for="(c, i) in columns"
+            :key="c.title"
+            v-reveal="{ variant: 'up', delay: i * 100 }"
+          >
             <p class="t-mono text-mute-dark">{{ c.title }}</p>
             <ul class="mt-4 space-y-2">
               <li v-for="l in c.links" :key="l.label">

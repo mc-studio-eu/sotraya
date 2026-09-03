@@ -13,14 +13,14 @@ const isHome = computed(() => route.path === '/')
 
 /**
  * The sections live on the landing page. From anywhere else (legal pages) the
- * same links have to walk back home first — plain anchors, so the browser keeps
+ * same links have to walk back home first; plain anchors, so the browser keeps
  * doing the smooth-scrolling itself.
  */
 const anchor = (hash: string) => (isHome.value ? hash : `/${hash}`)
 
 /**
  * Over the hero the bar is transparent and reads light on the photo. Past the
- * fold — and on every page without a hero — it lifts onto cream.
+ * fold, and on every page without a hero, it lifts onto cream.
  */
 const scrolled = ref(false)
 const lifted = computed(() => !isHome.value || scrolled.value)
@@ -39,7 +39,7 @@ onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
       <a
         :href="isHome ? '#top' : '/'"
         class="brand text-[1.25rem]"
-        aria-label="Sotraya — retour en haut"
+        aria-label="Sotraya, retour en haut"
       >
         <SotrayaLogo />
       </a>
@@ -70,9 +70,15 @@ onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
   transition: background-color 0.4s var(--ease-out-expo), border-color 0.4s var(--ease-out-expo),
     color 0.4s var(--ease-out-expo);
   border-bottom: 1px solid transparent;
+  animation: nav-enter 0.9s var(--ease-out-expo) 0.1s both;
 }
 
-/* logo | centred links | cta — the links stay centred on the viewport */
+@keyframes nav-enter {
+  from { opacity: 0; transform: translateY(-1rem); }
+  to { opacity: 1; transform: none; }
+}
+
+/* logo | centred links | cta: the links stay centred on the viewport */
 .nav-grid {
   display: flex;
   align-items: center;
@@ -118,5 +124,9 @@ onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
 }
 .nav-cta:hover {
   background-color: var(--color-sage-deep);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav { animation: none; }
 }
 </style>

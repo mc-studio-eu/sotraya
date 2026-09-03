@@ -4,7 +4,7 @@ import { LEGAL } from '~/utils/legal'
 
 const { company, terms } = LEGAL
 
-const title = 'Conditions générales de vente — Sotraya'
+const title = 'Conditions générales de vente | Sotraya'
 const description =
   "Conditions générales de vente des prestations Sotraya : devis, prix, paiement, délais, livrables, propriété intellectuelle, confidentialité et responsabilité."
 
@@ -56,8 +56,8 @@ useHead({
         valable {{ terms.quoteValidityDays }} jours à compter de son émission.
       </p>
       <p>
-        Le contrat est formé à la date de réception par le Prestataire du devis accepté — signature
-        manuscrite ou électronique, ou acceptation écrite non équivoque par courriel — accompagné,
+        Le contrat est formé à la date de réception par le Prestataire du devis accepté par signature
+        manuscrite ou électronique ou par acceptation écrite non équivoque par courriel et accompagné,
         le cas échéant, du versement de l'acompte. Le devis accepté, ses annexes et les présentes
         CGV forment l'intégralité de l'accord. En cas de contradiction, le devis prévaut sur les
         CGV.
@@ -194,8 +194,8 @@ useHead({
     <section>
       <h2><span class="num">10</span>Modifications du périmètre</h2>
       <p>
-        Toute demande d'évolution formulée après acceptation du devis — ajout de fonctionnalités,
-        changement d'outil, refonte d'un processus déjà validé — fait l'objet d'une évaluation puis
+        Toute demande d'évolution formulée après acceptation du devis, comme l'ajout de fonctionnalités,
+        le changement d'outil ou la refonte d'un processus déjà validé, fait l'objet d'une évaluation puis
         d'un avenant ou d'un devis complémentaire précisant l'impact sur le prix et le calendrier.
         Aucune évolution n'est engagée sans accord écrit du Client.
       </p>

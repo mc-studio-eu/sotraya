@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* ------------------------------------------------------------------
-   Sotraya — design tokens (charte graphique)
+   Sotraya: design tokens (charte graphique)
    ------------------------------------------------------------------ */
 @theme {
   --color-ink: #11110f;
@@ -140,19 +140,74 @@
    Scroll reveal
    ------------------------------------------------------------------ */
 .reveal {
+  --reveal-delay: 0ms;
+  --reveal-duration: 900ms;
+  --reveal-distance: clamp(1.25rem, 3vw, 2.25rem);
+  --reveal-x: 0;
+  --reveal-y: var(--reveal-distance);
+  --reveal-scale: 1;
   opacity: 0;
-  transform: translateY(1.5rem);
+  transform: translate3d(var(--reveal-x), var(--reveal-y), 0) scale(var(--reveal-scale));
+  filter: blur(5px);
   transition:
-    opacity 0.9s var(--ease-out-expo),
-    transform 0.9s var(--ease-out-expo);
+    opacity var(--reveal-duration) var(--ease-out-expo) var(--reveal-delay),
+    transform var(--reveal-duration) var(--ease-out-expo) var(--reveal-delay),
+    filter calc(var(--reveal-duration) * 0.8) ease-out var(--reveal-delay),
+    clip-path var(--reveal-duration) var(--ease-out-expo) var(--reveal-delay);
+  will-change: opacity, transform, filter, clip-path;
 }
 .reveal.is-in {
   opacity: 1;
   transform: none;
+  filter: none;
+}
+
+.reveal--fade {
+  --reveal-y: 0;
+  filter: none;
+}
+
+.reveal--left {
+  --reveal-x: calc(var(--reveal-distance) * -1);
+  --reveal-y: 0;
+}
+
+.reveal--right {
+  --reveal-x: var(--reveal-distance);
+  --reveal-y: 0;
+}
+
+.reveal--scale {
+  --reveal-y: calc(var(--reveal-distance) * 0.35);
+  --reveal-scale: 0.965;
+}
+
+.reveal--clip {
+  --reveal-y: 0.65em;
+  clip-path: inset(0 0 100% 0);
+  filter: none;
+}
+.reveal--clip.is-in {
+  clip-path: inset(-10% -5% -15% -5%);
+}
+
+.reveal--line {
+  --reveal-y: 0;
+  transform: scaleX(0);
+  transform-origin: left center;
+  filter: none;
+}
+.reveal--line.is-in {
+  transform: scaleX(1);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .reveal { opacity: 1; transform: none; }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    clip-path: none;
+  }
 }
 
 /* ------------------------------------------------------------------
@@ -272,7 +327,7 @@
     }
   }
 
-  /* Champ légal non encore renseigné — visible pour ne pas être oublié. */
+  /* Champ légal non encore renseigné, visible pour ne pas être oublié. */
   .legal-todo {
     font-family: var(--font-mono);
     font-size: 0.6875rem;

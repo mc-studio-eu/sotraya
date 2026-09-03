@@ -11,8 +11,12 @@
     "visuals": "bash scripts/build-visuals.sh"
   },
   "dependencies": {
+    "@remotion/cli": "^4.0.520",
     "@tailwindcss/vite": "^4.3.3",
     "nuxt": "^4.5.2",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "remotion": "^4.0.520",
     "tailwindcss": "^4.3.3",
     "vue": "^3.5.42",
     "vue-router": "^5.3.0"
