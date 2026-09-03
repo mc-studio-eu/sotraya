@@ -47,7 +47,7 @@ import { CONTACT } from '~/utils/contact'
   background-color: var(--color-sage);
   color: var(--color-ink);
   padding: 1.15rem 2.1rem;
-  border-radius: 999px;
+  border-radius: 6px;
   font-size: 1.0625rem;
   font-weight: 500;
   transition: background-color 0.3s var(--ease-out-expo);

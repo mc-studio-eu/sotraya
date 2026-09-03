@@ -35,7 +35,7 @@ onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
 
 <template>
   <header class="nav" :class="{ 'is-lifted': lifted }">
-    <div class="shell nav-grid py-5">
+    <div class="shell nav-grid pt-7 pb-5">
       <a
         :href="isHome ? '#top' : '/'"
         class="brand text-[1.25rem]"

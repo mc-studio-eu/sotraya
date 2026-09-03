@@ -106,6 +106,7 @@
 <style scoped>
 .cover {
   position: relative;
+  width: 100%;
   overflow: hidden;
   background-color: var(--color-ink);
   color: var(--color-cream);
