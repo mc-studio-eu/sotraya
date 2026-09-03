@@ -14,7 +14,6 @@ useHead({
   <SecServices />
   <SecDemo />
   <SecScope />
-  <SecResultats />
   <SecRealisations />
   <SecMethode />
   <SecPropriete />

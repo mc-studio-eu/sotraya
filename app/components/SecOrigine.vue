@@ -6,9 +6,9 @@
         name="portrait"
         ratio="1 / 1"
         sizes="(min-width: 1024px) 38vw, 100vw"
-        alt="Daris, fondateur de Sotraya"
+        alt="Daris Rabouhi, fondateur de Sotraya"
       >
-        Daris — fondateur
+        Daris Rabouhi — fondateur
       </BrandVisual>
 
       <div class="lg:pt-6">

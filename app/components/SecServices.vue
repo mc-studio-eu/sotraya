@@ -4,122 +4,217 @@ const services = [
     line: 'Automatiser ce qui se répète.',
     body: 'Onboarding, administration, suivi commercial, relances, documents, reporting, facturation et opérations récurrentes.',
     name: 'Automatisation des opérations',
-    core: true
+    icon: 'automation'
   },
   {
     line: 'Connecter ce qui est dispersé.',
     body: 'Vos outils, vos données et vos équipes fonctionnent enfin comme un seul système.',
     name: 'Intégrations & flux de données',
-    core: false
+    icon: 'integration'
   },
   {
     line: "Faire travailler l'IA là où elle est réellement utile.",
     body: 'Comprendre un document, traiter une demande, classifier une information, rédiger, extraire ou assister une décision.',
     name: 'IA appliquée aux opérations',
-    core: false
+    icon: 'ai'
   },
   {
     line: "Construire ce qui n'existe pas encore.",
     body: 'Interfaces internes, dashboards, portails et outils métier conçus autour de vos opérations.',
     name: 'Systèmes métier sur mesure',
-    core: false
+    icon: 'custom'
   }
 ]
 </script>
 
 <template>
-  <section id="services" class="band">
+  <section id="services" class="services">
     <div class="shell">
-      <ul class="border-t border-ink/12">
-        <li v-for="(s, i) in services" :key="s.name" v-reveal="i * 80" :class="{ 'is-open': s.core }" class="svc" tabindex="0">
-          <div class="svc-head">
-            <h3 class="t-section max-w-[18ch]">{{ s.line }}</h3>
-            <p class="t-mono svc-name">
-              <span v-if="s.core" class="core-dot" aria-hidden="true" />{{ s.name }}
-            </p>
-          </div>
-          <div class="svc-body">
-            <p class="t-lead max-w-[62ch] text-mute">{{ s.body }}</p>
-          </div>
-        </li>
-      </ul>
+      <div class="services-frame">
+        <header v-reveal class="services-intro">
+          <h2 class="t-section max-w-[15ch]">Un système pour tout faire circuler.</h2>
+          <p class="services-summary">
+            Automatisation, intégrations, IA et outils sur mesure — conçus comme un ensemble, autour
+            de vos opérations.
+          </p>
+        </header>
+
+        <div class="services-layout">
+          <BrandVisual
+            v-reveal
+            class="services-visual"
+            name="assemblage"
+            alt="Éléments distincts reliés au sein d'un même système"
+            sizes="(min-width: 900px) 50vw, 100vw"
+          />
+
+          <ul class="services-grid">
+            <li v-for="(service, i) in services" :key="service.name" v-reveal="i * 70" class="service-card">
+              <svg v-if="service.icon === 'automation'" class="service-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 7h8m-8 10h14M16 4v6m-4 4v6" />
+                <circle cx="16" cy="7" r="2.5" />
+                <circle cx="9" cy="17" r="2.5" />
+              </svg>
+              <svg v-else-if="service.icon === 'integration'" class="service-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="6" cy="12" r="2.5" />
+                <circle cx="18" cy="6" r="2.5" />
+                <circle cx="18" cy="18" r="2.5" />
+                <path d="m8.3 10.9 7.4-3.8m-7.4 6 7.4 3.8" />
+              </svg>
+              <svg v-else-if="service.icon === 'ai'" class="service-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 3c.4 4.9 2.1 6.6 7 7-4.9.4-6.6 2.1-7 7-.4-4.9-2.1-6.6-7-7 4.9-.4 6.6-2.1 7-7Z" />
+                <path d="M18.5 15.5c.2 2.1.9 2.8 3 3-2.1.2-2.8.9-3 3-.2-2.1-.9-2.8-3-3 2.1-.2 2.8-.9 3-3Z" />
+              </svg>
+              <svg v-else class="service-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="4" y="4" width="6" height="6" />
+                <rect x="14" y="4" width="6" height="6" />
+                <rect x="4" y="14" width="6" height="6" />
+                <path d="M14 17h6m-3-3v6" />
+              </svg>
+
+              <p class="t-mono service-name">{{ service.name }}</p>
+              <h3 class="service-title">{{ service.line }}</h3>
+              <p class="service-body">{{ service.body }}</p>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 </template>
 
 <style scoped>
-.svc {
-  display: block;
-  border-bottom: 1px solid color-mix(in srgb, var(--color-ink) 12%, transparent);
-  padding-block: clamp(2rem, 4vw, 3.25rem);
-  transition: padding 0.5s var(--ease-out-expo);
+.services {
+  padding-block: clamp(5.5rem, 10vw, 9rem);
 }
 
-.svc-head {
+.services-frame {
+  border: 1px solid color-mix(in srgb, var(--color-ink) 11%, transparent);
+  background-color: color-mix(in srgb, var(--color-paper) 42%, transparent);
+}
+
+.services-intro {
+  min-height: clamp(15rem, 26vw, 22rem);
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  justify-content: center;
+  gap: 1.75rem;
+  padding: clamp(2rem, 5vw, 4.25rem);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-ink) 11%, transparent);
 }
 
-.svc-name {
+.services-summary {
+  max-width: 46rem;
   color: var(--color-mute);
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6em;
+  font-size: clamp(0.95rem, 1.25vw, 1.125rem);
+  line-height: 1.55;
 }
 
-.core-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 999px;
-  background-color: var(--color-sage-deep);
-}
-
-.svc-body {
+.services-layout {
   display: grid;
-  grid-template-rows: 1fr;
-  margin-top: 1.25rem;
 }
 
-.svc-body > p {
-  min-height: 0;
+.services-visual {
+  --visual-ratio: 1 / 1;
+  min-width: 0;
+}
+
+.services-visual :deep(.frame) {
+  height: 100%;
+  min-height: clamp(24rem, 92vw, 40rem);
+}
+
+.services-visual :deep(img) {
+  object-position: center;
+}
+
+.services-grid {
+  display: grid;
+  min-width: 0;
+}
+
+.service-card {
+  min-height: 19rem;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  border-top: 1px solid color-mix(in srgb, var(--color-ink) 11%, transparent);
+}
+
+.service-card:first-child {
+  border-top: 0;
+}
+
+.service-icon {
+  width: 1.35rem;
+  height: 1.35rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+}
+
+.service-name {
+  margin-top: 1.5rem;
+  color: var(--color-mute);
+}
+
+.service-title {
+  max-width: 18ch;
+  margin-top: 1rem;
+  font-size: clamp(1.35rem, 2vw, 1.75rem);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+}
+
+.service-body {
+  max-width: 38ch;
+  margin-top: 1.25rem;
+  color: var(--color-mute);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+}
+
+@media (min-width: 640px) {
+  .services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .service-card:nth-child(2) {
+    border-top: 0;
+  }
+
+  .service-card:nth-child(even) {
+    border-left: 1px solid color-mix(in srgb, var(--color-ink) 11%, transparent);
+  }
 }
 
 @media (min-width: 900px) {
-  .svc-head {
-    flex-direction: row;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 3rem;
+  .services-intro {
+    padding-left: clamp(2.5rem, 4.5vw, 4.5rem);
   }
 
-  .svc-name {
-    flex: 0 0 auto;
-    padding-top: 0.4rem;
+  .services-layout {
+    grid-template-columns: 1fr 1fr;
   }
 
-  /* on wide screens the description is the reward for hover / keyboard focus */
-  .svc-body {
-    grid-template-rows: 0fr;
-    margin-top: 0;
-    opacity: 0;
-    transition:
-      grid-template-rows 0.6s var(--ease-out-expo),
-      opacity 0.5s var(--ease-out-expo),
-      margin-top 0.6s var(--ease-out-expo);
+  .services-visual {
+    border-right: 1px solid color-mix(in srgb, var(--color-ink) 11%, transparent);
   }
 
-  .svc-body > p {
-    overflow: hidden;
+  .services-visual :deep(.frame) {
+    min-height: 100%;
+    aspect-ratio: auto;
   }
 
-  .svc.is-open .svc-body,
-  .svc:hover .svc-body,
-  .svc:focus-visible .svc-body,
-  .svc:focus-within .svc-body {
-    grid-template-rows: 1fr;
-    opacity: 1;
-    margin-top: 1.5rem;
+  .service-card {
+    min-height: clamp(18rem, 25vw, 23rem);
+  }
+}
+
+@media (max-width: 639px) {
+  .service-card {
+    min-height: auto;
   }
 }
 </style>
