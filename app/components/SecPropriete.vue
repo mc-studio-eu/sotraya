@@ -1,6 +1,6 @@
 <template>
-  <section class="own">
-    <div class="shell flex min-h-[80vh] flex-col justify-center py-24">
+  <section id="autonomie" class="own">
+    <div class="shell flex min-h-[70vh] flex-col justify-center pt-28 pb-24">
       <h2 v-reveal class="t-statement max-w-[17ch]">
         Nous ne voulons pas vous rendre dépendant de nous.
       </h2>
@@ -12,7 +12,7 @@
         <li v-reveal="270">Votre documentation.</li>
       </ul>
 
-      <p v-reveal="340" class="mt-10 text-xl text-sage md:text-2xl">Tout reste à vous.</p>
+      <p v-reveal="340" class="payoff mt-10 text-sage">Tout reste à vous.</p>
 
       <p v-reveal="400" class="t-mono mt-12 max-w-[46ch] text-mute-dark">
         Un bon système doit continuer à fonctionner lorsque nous partons.
@@ -25,6 +25,12 @@
 .own {
   background-color: var(--color-ink);
   color: var(--color-cream);
+}
+
+.payoff {
+  font-size: clamp(1.5rem, 3.2vw, 2.75rem);
+  font-weight: 500;
+  letter-spacing: -0.025em;
 }
 
 .owned {

@@ -1,3 +1,7 @@
+<script setup lang="ts">
+import { CONTACT } from '~/utils/contact'
+</script>
+
 <template>
   <section id="parler" class="cta-band">
     <div class="shell py-28 md:py-40">
@@ -11,8 +15,17 @@
       </p>
 
       <div v-reveal="180" class="mt-14 flex flex-wrap items-center gap-x-8 gap-y-4">
-        <a href="mailto:hello@sotraya.com" class="cta arrow-link">
+        <a :href="CONTACT.calendly" target="_blank" rel="noopener noreferrer" class="cta arrow-link">
           <span>Réserver 30 minutes</span>
+          <span class="arrow" aria-hidden="true">↗</span>
+        </a>
+        <a
+          :href="CONTACT.whatsapp"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="cta-alt arrow-link"
+        >
+          <span>WhatsApp</span>
           <span class="arrow" aria-hidden="true">↗</span>
         </a>
         <p class="t-mono text-mute-dark">Gratuit · sans engagement</p>
@@ -41,5 +54,20 @@
 }
 .cta:hover {
   background-color: var(--color-cream);
+}
+
+.cta-alt {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  font-size: 1.0625rem;
+  color: color-mix(in srgb, var(--color-cream) 78%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-cream) 30%, transparent);
+  padding-bottom: 2px;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+.cta-alt:hover {
+  color: var(--color-cream);
+  border-bottom-color: var(--color-cream);
 }
 </style>

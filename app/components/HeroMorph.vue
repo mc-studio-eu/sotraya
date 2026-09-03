@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 import { MARK_MODULES } from '~/utils/mark'
-import { useScrollProgress } from '~/composables/useScrollProgress'
 
 /**
  * The page's signature: the six modules of the Sotraya symbol arrive scattered,
@@ -48,7 +47,9 @@ const STEPS = [
   { x: 471.9, n: '04', label: 'Result' }
 ]
 
-const { target, progress } = useScrollProgress()
+/** 0 = assembled symbol, 1 = resolved workflow. Owned by the hero, which measures the scroll. */
+const props = defineProps<{ progress: number }>()
+
 const entry = ref(0)
 let frame = 0
 
@@ -56,8 +57,8 @@ const lerp = (a: number, b: number, t: number) => a + (b - a) * t
 const clamp01 = (v: number) => (v < 0 ? 0 : v > 1 ? 1 : v)
 const easeOutExpo = (t: number) => (t >= 1 ? 1 : 1 - Math.pow(2, -10 * t))
 /** Holds the S together for the first half of the scroll, then resolves the chain. */
-const flowT = computed(() => easeOutExpo(clamp01((progress.value - 0.12) / 0.68)))
-const chainT = computed(() => clamp01((progress.value - 0.5) / 0.35))
+const flowT = computed(() => easeOutExpo(clamp01((props.progress - 0.12) / 0.68)))
+const chainT = computed(() => clamp01((props.progress - 0.42) / 0.3))
 
 const transforms = computed(() =>
   MARK_MODULES.map((m, i) => {
@@ -99,7 +100,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div ref="target" class="morph">
+  <div class="morph">
     <svg :viewBox="`0 0 ${CANVAS.w} ${CANVAS.h}`" class="w-full h-auto" aria-hidden="true">
       <g class="chain" :style="{ opacity: chainT }">
         <g v-for="(c, i) in CONNECTORS" :key="`c${i}`">

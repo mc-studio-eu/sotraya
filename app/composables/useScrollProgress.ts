@@ -14,7 +14,8 @@ export function useScrollProgress() {
     const el = target.value
     if (!el) return
     const rect = el.getBoundingClientRect()
-    const span = Math.max(rect.height * 0.75, 1)
+    const runway = rect.height - window.innerHeight
+    const span = Math.max(runway > 0 ? runway : rect.height * 0.75, 1)
     progress.value = Math.min(Math.max(-rect.top / span, 0), 1)
   }
 

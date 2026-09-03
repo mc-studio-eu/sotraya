@@ -1,20 +1,20 @@
 <script setup lang="ts">
+import { CONTACT } from '~/utils/contact'
+
 const columns = [
   {
-    title: 'Studio',
-    links: [{ label: 'Lyon, France', href: null }]
-  },
-  {
     title: 'Suivre',
-    links: [
-      { label: 'Instagram', href: 'https://instagram.com' },
-      { label: 'LinkedIn', href: 'https://linkedin.com' }
-    ]
+    links: [{ label: 'Instagram', href: CONTACT.instagram }]
   },
   {
     title: 'Écrire',
-    links: [{ label: 'hello@sotraya.com', href: 'mailto:hello@sotraya.com' }]
+    links: [{ label: 'WhatsApp', href: CONTACT.whatsapp }]
   }
+]
+
+const legal = [
+  { to: '/mentions-legales', label: 'Mentions légales' },
+  { to: '/conditions-generales-de-vente', label: 'CGV' }
 ]
 
 const year = new Date().getFullYear()
@@ -26,12 +26,19 @@ const year = new Date().getFullYear()
       <div class="grid gap-12 border-t border-cream/12 pt-14 md:grid-cols-[1.4fr_1fr] md:gap-20">
         <p class="tagline">Systems for better business.</p>
 
-        <div class="grid gap-10 sm:grid-cols-3">
+        <div class="grid gap-10 sm:grid-cols-2">
           <div v-for="c in columns" :key="c.title">
             <p class="t-mono text-mute-dark">{{ c.title }}</p>
             <ul class="mt-4 space-y-2">
               <li v-for="l in c.links" :key="l.label">
-                <a v-if="l.href" :href="l.href" class="foot-link">{{ l.label }}</a>
+                <a
+                  v-if="l.href"
+                  :href="l.href"
+                  class="foot-link"
+                  :target="l.href.startsWith('http') ? '_blank' : undefined"
+                  :rel="l.href.startsWith('http') ? 'noopener noreferrer' : undefined"
+                  >{{ l.label }}</a
+                >
                 <span v-else class="text-cream/70">{{ l.label }}</span>
               </li>
             </ul>
@@ -45,6 +52,13 @@ const year = new Date().getFullYear()
         class="flex flex-wrap items-center justify-between gap-4 border-t border-cream/12 py-8 text-sm text-mute-dark"
       >
         <p>© {{ year }} Sotraya</p>
+
+        <nav class="flex flex-wrap items-center gap-x-6 gap-y-2" aria-label="Informations légales">
+          <NuxtLink v-for="l in legal" :key="l.to" :to="l.to" class="foot-link">{{
+            l.label
+          }}</NuxtLink>
+        </nav>
+
         <p class="t-mono">Précis · Calme · Ingénieux · Premium</p>
       </div>
     </div>

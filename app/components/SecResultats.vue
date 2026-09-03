@@ -22,13 +22,13 @@ const stats = [
 </script>
 
 <template>
-  <section class="results">
+  <section id="resultats" class="results">
     <article v-for="s in stats" :key="s.n" class="stat">
       <div class="shell">
         <p v-reveal class="t-mono text-mute">{{ s.n }} / Résultat</p>
         <p v-reveal="80" class="t-mega mt-8">{{ s.value }}</p>
-        <p v-reveal="160" class="t-section mt-8 max-w-[18ch]">{{ s.lead }}</p>
-        <p v-if="s.note" v-reveal="240" class="t-lead mt-6 max-w-[38ch] text-mute">{{ s.note }}</p>
+        <p v-reveal="160" class="t-section lead mt-8 max-w-[18ch]">{{ s.lead }}</p>
+        <p v-reveal="240" class="t-lead note mt-6 max-w-[38ch] text-mute">{{ s.note }}</p>
       </div>
     </article>
   </section>
@@ -45,5 +45,15 @@ const stats = [
 
 .stat + .stat {
   border-top: 1px solid color-mix(in srgb, var(--color-ink) 10%, transparent);
+}
+
+/* Hauteurs réservées : chaque panneau a la même pile de contenu,
+   donc les trois chiffres tombent exactement à la même hauteur. */
+.lead {
+  min-height: calc(4 * 1.04em);
+}
+
+.note {
+  min-height: 1.55em;
 }
 </style>

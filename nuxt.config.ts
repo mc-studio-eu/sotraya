@@ -1,6 +1,5 @@
 import tailwindcss from '@tailwindcss/vite'
 
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
@@ -20,9 +19,26 @@ export default defineNuxtConfig({
           content:
             'Sotraya conçoit les systèmes qui connectent vos outils, automatisent vos opérations et éliminent le travail répétitif.'
         },
-        { name: 'theme-color', content: '#11110F' }
+        { name: 'theme-color', content: '#11110F' },
+
+        { property: 'og:type', content: 'website' },
+        { property: 'og:site_name', content: 'Sotraya' },
+        { property: 'og:locale', content: 'fr_FR' },
+        { property: 'og:title', content: 'Sotraya — Systems for better business.' },
+        {
+          property: 'og:description',
+          content:
+            'Sotraya conçoit les systèmes qui connectent vos outils, automatisent vos opérations et éliminent le travail répétitif.'
+        },
+        { property: 'og:url', content: 'https://sotraya.com/' },
+        { property: 'og:image', content: 'https://sotraya.com/apple-touch-icon.png' },
+        { name: 'twitter:card', content: 'summary' }
       ],
       link: [
+        { rel: 'icon', href: '/favicon.ico', sizes: '48x48' },
+        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
+        { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
+
         { rel: 'preconnect', href: 'https://api.fontshare.com' },
         { rel: 'preconnect', href: 'https://cdn.fontshare.com', crossorigin: '' },
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },

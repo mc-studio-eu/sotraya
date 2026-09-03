@@ -139,7 +139,6 @@ const { target, isIn } = useInView({ threshold: 0.35 })
   color: var(--color-sage);
 }
 
-/* horizontal from md up ------------------------------------------ */
 @media (min-width: 768px) {
   .chain {
     flex-direction: row;

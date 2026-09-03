@@ -8,11 +8,21 @@ const steps = [
 </script>
 
 <template>
-  <section class="band">
+  <section id="methode" class="band">
     <div class="shell">
       <h2 v-reveal class="t-statement max-w-[19ch]">
         On commence par votre façon de travailler. Jamais par un outil.
       </h2>
+
+      <BrandVisual
+        v-reveal="120"
+        name="assemblage"
+        class="assemblage mt-14 md:mt-20"
+        sizes="(min-width: 90rem) 81rem, 92vw"
+        alt="Modules de béton, de bois sombre et de verre teinté enfilés sur un même axe."
+      >
+        Chaque étape ajoute une pièce à un ensemble déjà en place.
+      </BrandVisual>
 
       <ol class="track mt-16 md:mt-24">
         <li v-for="(s, i) in steps" :key="s.name" v-reveal="i * 110" class="stop">
@@ -26,6 +36,17 @@ const steps = [
 </template>
 
 <style scoped>
+.assemblage {
+  --visual-ratio: 4 / 3;
+}
+
+@media (min-width: 768px) {
+  .assemblage {
+    /* the object runs corner to corner — anything tighter than 16/10 clips its ends */
+    --visual-ratio: 16 / 10;
+  }
+}
+
 .track {
   display: grid;
   gap: 3rem;

@@ -1,19 +1,18 @@
 <template>
   <section id="a-propos" class="band">
     <div class="shell grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
-      <figure v-reveal class="portrait">
-        <div class="portrait-frame">
-          <SotrayaMark class="portrait-mark" label="" aria-hidden="true" />
-        </div>
-        <figcaption class="t-mono mt-4 text-mute">
-          Daris — fondateur · portrait éditorial à fournir
-        </figcaption>
-      </figure>
+      <BrandVisual
+        v-reveal
+        name="portrait"
+        ratio="1 / 1"
+        sizes="(min-width: 1024px) 38vw, 100vw"
+        alt="Daris, fondateur de Sotraya"
+      >
+        Daris — fondateur
+      </BrandVisual>
 
       <div class="lg:pt-6">
-        <p v-reveal class="t-mono text-mute">Pourquoi Sotraya existe</p>
-
-        <h2 v-reveal="80" class="t-section mt-8 max-w-[22ch]">
+        <h2 v-reveal class="t-section max-w-[22ch]">
           Les grandes entreprises ont compris depuis longtemps la puissance des bons systèmes.
         </h2>
 
@@ -30,20 +29,3 @@
     </div>
   </section>
 </template>
-
-<style scoped>
-.portrait-frame {
-  position: relative;
-  display: grid;
-  place-items: center;
-  aspect-ratio: 4 / 5;
-  background-color: var(--color-stone);
-  overflow: hidden;
-}
-
-.portrait-mark {
-  height: 30%;
-  width: auto;
-  color: color-mix(in srgb, var(--color-ink) 14%, transparent);
-}
-</style>

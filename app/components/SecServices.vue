@@ -31,7 +31,7 @@ const services = [
   <section id="services" class="band">
     <div class="shell">
       <ul class="border-t border-ink/12">
-        <li v-for="(s, i) in services" :key="s.name" v-reveal="i * 80" class="svc" tabindex="0">
+        <li v-for="(s, i) in services" :key="s.name" v-reveal="i * 80" :class="{ 'is-open': s.core }" class="svc" tabindex="0">
           <div class="svc-head">
             <h3 class="t-section max-w-[18ch]">{{ s.line }}</h3>
             <p class="t-mono svc-name">
@@ -113,6 +113,7 @@ const services = [
     overflow: hidden;
   }
 
+  .svc.is-open .svc-body,
   .svc:hover .svc-body,
   .svc:focus-visible .svc-body,
   .svc:focus-within .svc-body {

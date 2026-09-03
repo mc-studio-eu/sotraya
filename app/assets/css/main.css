@@ -154,3 +154,133 @@
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; }
 }
+
+/* ------------------------------------------------------------------
+   Legal documents (mentions légales, CGV)
+   ------------------------------------------------------------------ */
+@layer components {
+  .legal-body {
+    font-size: 0.975rem;
+    line-height: 1.7;
+    color: color-mix(in srgb, var(--color-ink) 82%, transparent);
+  }
+
+  .legal-body > section + section {
+    margin-top: 3.25rem;
+  }
+
+  .legal-body h2 {
+    font-size: clamp(1.125rem, 1.6vw, 1.375rem);
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    color: var(--color-ink);
+    line-height: 1.25;
+  }
+
+  .legal-body h2 .num {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.2em;
+    color: var(--color-mute-dark);
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+
+  .legal-body h3 {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    margin-top: 1.75rem;
+  }
+
+  .legal-body p,
+  .legal-body ul,
+  .legal-body ol {
+    margin-top: 1rem;
+  }
+
+  .legal-body ul,
+  .legal-body ol {
+    padding-left: 1.15rem;
+  }
+  .legal-body ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  .legal-body ul > li {
+    position: relative;
+    padding-left: 1.15rem;
+  }
+  .legal-body ul > li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.72em;
+    width: 0.35rem;
+    height: 1px;
+    background-color: var(--color-sage-deep);
+  }
+  .legal-body ol {
+    list-style: decimal;
+  }
+  .legal-body li + li {
+    margin-top: 0.4rem;
+  }
+
+  .legal-body strong {
+    font-weight: 500;
+    color: var(--color-ink);
+  }
+
+  .legal-body a {
+    color: var(--color-ink);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: color-mix(in srgb, var(--color-ink) 30%, transparent);
+    transition: text-decoration-color 0.25s ease;
+  }
+  .legal-body a:hover {
+    text-decoration-color: var(--color-sage-deep);
+  }
+
+  /* Identity table of the “éditeur / hébergeur” blocks */
+  .legal-dl {
+    margin-top: 1.5rem;
+    border-top: 1px solid color-mix(in srgb, var(--color-ink) 10%, transparent);
+  }
+  .legal-dl > div {
+    display: grid;
+    gap: 0.15rem 1.5rem;
+    padding-block: 0.85rem;
+    border-bottom: 1px solid color-mix(in srgb, var(--color-ink) 10%, transparent);
+  }
+  .legal-dl dt {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-mute-dark);
+    padding-top: 0.15rem;
+  }
+  .legal-dl dd {
+    color: var(--color-ink);
+  }
+
+  @media (min-width: 640px) {
+    .legal-dl > div {
+      grid-template-columns: 15rem 1fr;
+    }
+  }
+
+  /* Champ légal non encore renseigné — visible pour ne pas être oublié. */
+  .legal-todo {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-sage-deep);
+    background-color: color-mix(in srgb, var(--color-sage) 40%, transparent);
+    padding: 0.15rem 0.45rem;
+    border-radius: 2px;
+  }
+}

@@ -1,5 +1,5 @@
 <template>
-  <section class="band">
+  <section id="probleme" class="band">
     <div class="shell">
       <h2 class="t-statement max-w-[20ch]">
         <span v-reveal class="block">Votre entreprise n'a probablement pas besoin d'un nouvel outil.</span>

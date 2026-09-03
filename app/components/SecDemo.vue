@@ -29,7 +29,7 @@ watch(isIn, (visible) => {
 </script>
 
 <template>
-  <section ref="target" class="demo band" :class="{ 'is-in': isIn }">
+  <section id="demonstration" ref="target" class="demo band" :class="{ 'is-in': isIn }">
     <div class="shell">
       <p v-reveal class="t-mono text-mute">Un système, en conditions réelles</p>
 

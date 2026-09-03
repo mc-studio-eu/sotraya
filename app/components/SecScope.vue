@@ -7,7 +7,7 @@ const rows = [
 </script>
 
 <template>
-  <section class="scope band">
+  <section id="automatisations" class="scope band">
     <div class="shell">
       <h2 v-reveal class="t-statement max-w-[16ch]">
         Qu'est-ce qui pourrait disparaître de votre semaine ?
