@@ -30,15 +30,15 @@ const services = [
 <template>
   <section id="services" class="services">
     <div class="shell">
-      <div class="services-frame">
-        <header v-reveal class="services-intro">
-          <h2 class="t-section max-w-[15ch]">Un système pour tout faire circuler.</h2>
-          <p class="services-summary">
-            Automatisation, intégrations, IA et outils sur mesure, conçus comme un ensemble autour
-            de vos opérations.
-          </p>
-        </header>
+      <header v-reveal class="services-intro">
+        <h2 class="t-section services-heading">Un système pour tout faire circuler.</h2>
+        <p class="services-summary">
+          Automatisation, intégrations, IA et outils sur mesure, conçus comme un ensemble autour
+          de vos opérations.
+        </p>
+      </header>
 
+      <div class="services-frame">
         <div class="services-layout">
           <BrandVisual
             v-reveal="{ variant: 'scale', duration: 1200 }"
@@ -93,23 +93,22 @@ const services = [
   padding-block: clamp(5.5rem, 10vw, 9rem);
 }
 
+.services-intro {
+  margin-bottom: clamp(2.25rem, 5vw, 4.5rem);
+}
+
+.services-heading {
+  max-width: 15ch;
+}
+
 .services-frame {
   border: 1px solid color-mix(in srgb, var(--color-ink) 11%, transparent);
   background-color: color-mix(in srgb, var(--color-paper) 42%, transparent);
 }
 
-.services-intro {
-  min-height: clamp(15rem, 26vw, 22rem);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 1.75rem;
-  padding: clamp(2rem, 5vw, 4.25rem);
-  border-bottom: 1px solid color-mix(in srgb, var(--color-ink) 11%, transparent);
-}
-
 .services-summary {
   max-width: 46rem;
+  margin-top: 1.75rem;
   color: var(--color-mute);
   font-size: clamp(0.95rem, 1.25vw, 1.125rem);
   line-height: 1.55;
@@ -195,10 +194,6 @@ const services = [
 }
 
 @media (min-width: 900px) {
-  .services-intro {
-    padding-left: clamp(2.5rem, 4.5vw, 4.5rem);
-  }
-
   .services-layout {
     grid-template-columns: 1fr 1fr;
   }
