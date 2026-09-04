@@ -52,7 +52,7 @@ onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
 
       <div class="flex items-center justify-end">
         <a :href="anchor('#parler')" class="nav-cta arrow-link">
-          <span>Parler à Sotraya</span>
+          <span>Audit gratuit</span>
           <span class="arrow" aria-hidden="true">↗</span>
         </a>
       </div>

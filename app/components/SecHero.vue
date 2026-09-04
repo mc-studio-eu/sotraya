@@ -53,7 +53,7 @@ const jpg = computed(() => srcset('jpg'))
       </p>
 
       <div v-reveal="{ variant: 'up', delay: 560 }" class="hero-actions">
-        <a href="#parler" class="hero-cta">Parler de votre fonctionnement</a>
+        <a href="#parler" class="hero-cta">Demander votre audit gratuit</a>
         <p class="t-mono hero-note">30 min · sans engagement</p>
       </div>
     </div>

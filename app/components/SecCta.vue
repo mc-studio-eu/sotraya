@@ -16,7 +16,7 @@ import { CONTACT } from '~/utils/contact'
 
       <div v-reveal="180" class="mt-14 flex flex-wrap items-center gap-x-8 gap-y-4">
         <a :href="CONTACT.calendly" target="_blank" rel="noopener noreferrer" class="cta arrow-link">
-          <span>Réserver 30 minutes</span>
+          <span>Réserver l’audit gratuit</span>
           <span class="arrow" aria-hidden="true">↗</span>
         </a>
         <a
@@ -28,7 +28,7 @@ import { CONTACT } from '~/utils/contact'
           <span>WhatsApp</span>
           <span class="arrow" aria-hidden="true">↗</span>
         </a>
-        <p class="t-mono text-mute-dark">Gratuit · sans engagement</p>
+        <p class="t-mono text-mute-dark">Audit gratuit · 30 min · sans engagement</p>
       </div>
     </div>
   </section>
