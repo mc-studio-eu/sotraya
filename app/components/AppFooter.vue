@@ -55,7 +55,8 @@ const year = new Date().getFullYear()
       <div
         class="flex flex-wrap items-center justify-between gap-4 border-t border-cream/12 py-8 text-sm text-mute-dark"
       >
-        <p>© {{ year }} Sotraya</p>
+       
+        <a href="https://www.mc-studio.eu/" target="_blank" rel="noopener noreferrer">Made by MC Studio</a>
 
         <nav class="flex flex-wrap items-center gap-x-6 gap-y-2" aria-label="Informations légales">
           <NuxtLink v-for="l in legal" :key="l.to" :to="l.to" class="foot-link">{{
@@ -63,7 +64,7 @@ const year = new Date().getFullYear()
           }}</NuxtLink>
         </nav>
 
-        <p class="t-mono">Précis · Calme · Ingénieux · Premium</p>
+       <p>© {{ year }} Sotraya</p>
       </div>
     </div>
   </footer>

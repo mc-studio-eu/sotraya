@@ -9,8 +9,9 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "visuals": "bash scripts/build-visuals.sh",
-    "video:studio": "remotion studio remotion/index.ts",
-    "video:render": "remotion render remotion/index.ts SotrayaFilm out/sotraya-film.mp4",
+    "video:studio": "npm run video:sfx && remotion studio remotion/index.ts",
+    "video:sfx": "node scripts/create-video-sfx.mjs",
+    "video:render": "npm run video:sfx && remotion render remotion/index.ts SotrayaFilm out/sotraya-film.mp4",
     "video:frame": "remotion still remotion/index.ts SotrayaFilm out/sotraya-poster.png --frame=840"
   },
   "dependencies": {
